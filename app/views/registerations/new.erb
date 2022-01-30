@@ -1,0 +1,32 @@
+<h1>Create New Account</h1>
+<%= form_with model: @user, url: sign_up_path do |form| %> 
+<% if @user.errors.any? %>
+<div class="alert alert-danger">
+  <% @user.errors.full_messages.each do |message|%>
+  <div class="alert alert-info" role="alert"><%= message %></div>
+  <% end %>
+</div>
+<% end %>
+<form class="row g-3">
+  <div class="col-md-6">
+    <%= form.label :email, "Email", class: "form-label" %> 
+    <%= form.text_field :email, class: "form-control",placeholder: "example@example.com"%>
+  </div>
+  <div class="col-md-6">
+    <%= form.label :password, "Password", class: "form-label" %>
+    <%=form.password_field :password, class: "form-control", placeholder:"Enter
+    your password"%>
+  </div>
+
+  <div class="col-md-6">
+    <%= form.label :password_confirmation, "Password Confirmation", class:
+    "form-label" %> <%=form.password_field :password_confirmation, class:
+    "form-control", placeholder:"Confirm your password" %>
+  </div>
+
+  <div class="col-12">
+    <!-- <button type="submit" class="btn btn-primary">Create Account</button> -->
+    <%= form.submit "Create Account", class: "btn btn-primary" %>
+  </div>
+</form>
+<% end%>
