@@ -1,0 +1,20 @@
+<h1>Update your Account</h1>
+<%= form_with model: @user, url: password_path,local: true do |form| %>
+  <div class="col-md-6">
+    <%= form.label :password, "Old Password" , class: "form-label" %>
+      <%= form.text_field :email, class: "form-control" ,placeholder: "Enter your Password" %>
+  </div>
+  <div class="col-md-6">
+    <%= form.label :password, "Password" , class: "form-label" %>
+      <%=form.password_field :password, class: "form-control" , placeholder:"Enter your New password"%>
+  </div>
+
+  <div class="col-md-6">
+    <%= form.label :password_confirmation, "Password Confirmation" , class: "form-label" %>
+      <%=form.password_field :password_confirmation, class: "form-control" , placeholder:"Confirm your new password" %>
+  </div>
+
+  <div class="col-12">
+    <%= form.submit "Update" ,data: { turbo: false }, class: "btn btn-primary" %>
+  </div>
+  <% end %>

@@ -1,0 +1,17 @@
+<h1>Sign In</h1>
+<%= form_with url: sign_in_path,local: true do |form| %>
+<div class="input-group mb-3">
+  <span class="input-group-text" id="basic-addon1">@</span>
+  <%= form.text_field :email,type: "text", class: "form-control",placeholder: "example@example.com",:'aria-label' => "Email",
+:'aria-describedby' => "basic-addon1"%>
+</div>
+<div class="input-group mb-3">
+  <span class="input-group-text" id="basic-addon1">*</span>
+  <%= form.text_field :password,type: "password", class: "form-control",placeholder: "Password",:'aria-label' => "Email",
+:'aria-describedby' => "basic-addon1"%>
+</div>
+
+<div class="col-12">
+    <%= form.submit "Sign In",data: { turbo: false }, class: "btn btn-primary" %>
+  </div>
+<% end %>

@@ -1,5 +1,6 @@
+
 <h1>Create New Account</h1>
-<%= form_with model: @user, url: sign_up_path do |form| %> 
+<%= form_with model: @user,local: true, url: sign_up_path, class: "row g-3" do |form| %> 
 <% if @user.errors.any? %>
 <div class="alert alert-danger">
   <% @user.errors.full_messages.each do |message|%>
@@ -7,7 +8,6 @@
   <% end %>
 </div>
 <% end %>
-<form class="row g-3">
   <div class="col-md-6">
     <%= form.label :email, "Email", class: "form-label" %> 
     <%= form.text_field :email, class: "form-control",placeholder: "example@example.com"%>
@@ -26,7 +26,6 @@
 
   <div class="col-12">
     <!-- <button type="submit" class="btn btn-primary">Create Account</button> -->
-    <%= form.submit "Create Account", class: "btn btn-primary" %>
+    <%= form.submit "Create Account",data: { turbo: false }, class: "btn btn-primary" %>
   </div>
-</form>
 <% end%>

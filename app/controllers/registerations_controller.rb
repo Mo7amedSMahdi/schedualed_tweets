@@ -1,4 +1,5 @@
 class RegisterationsController < ApplicationController
+    before_action :require_user_logged_out
     def new
         @user = User.new
     end
